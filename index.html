@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <main class="main-container">
+        <form class="container">
+            <section class="display">
+                <input type="text" value="0" id="result">
+                <input type="button" value="c" class="square-button operations" onclick="result.value = '0'">            
+            </section>
+            <section class="button-container">
+                <div class="button">
+                    <input type="button" value="7" class="square-button numbers" onclick="displayNumber(this.value)">
+                    <input type="button" value="8" class="square-button numbers" onclick="displayNumber(this.value)">
+                    <input type="button" value="9" class="square-button numbers" onclick="displayNumber(this.value)">
+                    <input type="button" value="/" class="square-button operations" onclick="displayNumber(this.value)">
+                </div>
+                <div class="button">
+                    <input type="button" value="4" class="square-button numbers" onclick="displayNumber(this.value)">
+                    <input type="button" value="5" class="square-button numbers" onclick="displayNumber(this.value)">
+                    <input type="button" value="6" class="square-button numbers" onclick="displayNumber(this.value)">
+                    <input type="button" value="×" class="square-button operations" onclick="displayNumber(this.value)">
+                </div>
+                <div class="button">
+                    <input type="button" value="1" class="square-button numbers" onclick="displayNumber(this.value)">
+                    <input type="button" value="2" class="square-button numbers" onclick="displayNumber(this.value)">
+                    <input type="button" value="3" class="square-button numbers" onclick="displayNumber(this.value)">
+                    <input type="button" value="-" class="square-button operations" onclick="displayNumber(this.value)">
+                </div>
+                <div class="button">
+                    <input type="button" value="0" class="square-button numbers" onclick="displayNumber(this.value)">
+                    <input type="button" value="." class="square-button numbers" onclick="displayNumber(this.value)">
+                    <input type="button" value="=" class="square-button operations" onclick="operate()">
+                    <input type="button" value="+" class="square-button operations" onclick="displayNumber(this.value)">
+                </div>
+            </section>
+        </form>
+    </main>
+</body>
+<script src="./script/script.js"></script>
+</html>
