@@ -120,7 +120,7 @@ operationButtons.forEach(button => {
             }else{
                 handleOperation(button.value);
                 inputField.value += button.value;
-            }        
+            }   
     });
 });
 
