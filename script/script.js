@@ -75,8 +75,6 @@ const operate = () => {
     inputField.innerText = result;
     currentDisplayValue = result.toString();
     firstNumber = "";
-  } else {
-    // inputField.value = 'Error: Invalid operation';
   }
 };
 
@@ -119,10 +117,8 @@ numberButtons.forEach((button) => {
   });
 });
 
-//Event listener for operation buttons
 operationButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    // handleOperation(button.value);
     if (button.innerText === "=") {
       handleOperation(button.innerText);
     } else {
@@ -132,19 +128,16 @@ operationButtons.forEach((button) => {
   });
 });
 
-// Event listener for equals button
 equalButton.addEventListener("click", () => {
   if (firstNumber !== "" && currentDisplayValue !== "") {
     operate();
   }
 });
 
-// Event listener for clear button
 clearButton.addEventListener("click", () => {
   clearDisplay();
 });
 
-// Event listeners for add, subtract, multiply, and divide buttons
 addButton.addEventListener("click", () => {
   if (currentDisplayValue !== "") {
     handleOperation("+");
@@ -173,7 +166,6 @@ divideButton.addEventListener("click", () => {
   currentDisplayValue = "";
 });
 
-//Event listener for backspace button
 backspaceButton.addEventListener("click", () => {
   if (inputField.innerText !== "0") {
     inputField.innerText = inputField.innerText.slice(0, -1);
@@ -184,7 +176,6 @@ backspaceButton.addEventListener("click", () => {
   }
 });
 
-//Keyboard support
 document.addEventListener("keydown", (event) => {
   const key = event.key;
   if (!isNaN(parseInt(key))) {
