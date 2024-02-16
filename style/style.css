@@ -2,7 +2,7 @@
 
 html {
   font-family: "Ubuntu", sans-serif;
-  background-color: rgba(169, 205, 255, 0.8);
+  background: url("../image/paper-clips.jpg") no-repeat center center fixed;
   background-size: cover;
 
 .main-container {
