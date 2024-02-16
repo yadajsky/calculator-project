@@ -13,7 +13,6 @@ const backspaceButton = document.querySelector("#backspaceButton");
 let currentDisplayValue = "";
 let firstNumber = "";
 let operator = "";
-let displayValue = "";
 let haveDot = false;
 
 const isAllowedCharacter = (char) => /[0-9\.]/.test(char);
@@ -73,7 +72,7 @@ const operate = () => {
       result = NaN;
   }
   if (!isNaN(result)) {
-    inputField.value = result;
+    inputField.innerText = result;
     currentDisplayValue = result.toString();
     firstNumber = "";
   } else {
@@ -83,7 +82,7 @@ const operate = () => {
 
 const handleOperation = (clickOperator) => {
   if (firstNumber === "") {
-    firstNumber = inputField.value;
+    firstNumber = inputField.innerText;
   } else {
     operate();
   }
@@ -93,7 +92,7 @@ const handleOperation = (clickOperator) => {
     currentDisplayValue = numberButtons.forEach((button) => {
       button.addEventListener("click", () => {
         currentDisplayValue = "";
-        currentDisplayValue += button.value;
+        currentDisplayValue += button.innerText;
         console.log(currentDisplayValue);
       });
     });
@@ -105,25 +104,18 @@ const clearDisplay = () => {
   currentDisplayValue = "";
   firstNumber = "";
   operator = "";
-  displayValue = "";
+  haveDot = false;
 };
 
-//Event listeners for number buttons
-// numberButtons.forEach((button) => {
-//   button.addEventListener("click", () => {
-//     displayNumber(button.value);
-//   });
-// });
-
-numberButtons.forEach((number) => {
-  number.addEventListener("click", (e) => {
+numberButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
     if (e.target.innerText === "." && !haveDot) {
       haveDot = true;
     } else if (e.target.innerText === "." && haveDot) {
       return;
     }
-    displayValue += e.target.innerText;
-    inputField.innerText = displayValue;
+    currentDisplayValue += e.target.innerText;
+    inputField.innerText = currentDisplayValue;
   });
 });
 
@@ -131,11 +123,11 @@ numberButtons.forEach((number) => {
 operationButtons.forEach((button) => {
   button.addEventListener("click", () => {
     // handleOperation(button.value);
-    if (button.value === "=") {
-      handleOperation(button.value);
+    if (button.innerText === "=") {
+      handleOperation(button.innerText);
     } else {
-      handleOperation(button.value);
-      inputField.value += button.value;
+      handleOperation(button.innerText);
+      inputField.innerText += button.innerText;
     }
   });
 });
@@ -183,12 +175,12 @@ divideButton.addEventListener("click", () => {
 
 //Event listener for backspace button
 backspaceButton.addEventListener("click", () => {
-  if (inputField.value !== "0") {
-    inputField.value = inputField.value.slice(0, -1);
-    if (inputField.value === "") {
-      inputField.value = "0";
+  if (inputField.innerText !== "0") {
+    inputField.innerText = inputField.innerText.slice(0, -1);
+    if (inputField.innerText === "") {
+      inputField.innerText = "0";
     }
-    currentDisplayValue = inputField.value;
+    currentDisplayValue = inputField.innerText;
   }
 });
 

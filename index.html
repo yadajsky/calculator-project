@@ -11,16 +11,26 @@
       <form class="container">
         <section class="display">
           <div type="text" value="0" id="result">0</div>
-          <button
-            type="button"
-            value="c"
-            class="square-button operations"
-            id="clearButton"
-          >
-            c
-          </button>
         </section>
         <section class="button-container">
+          <div class="button">
+            <button
+              type="button"
+              value="c"
+              class="square-button operations"
+              id="clearButton"
+            >
+              c
+            </button>
+            <button
+              type="button"
+              value="⌫"
+              class="square-button"
+              id="backspaceButton"
+            >
+              ⌫
+            </button>
+          </div>
           <div class="button">
             <button type="button" value="7" class="square-button numbers">
               7
@@ -107,19 +117,9 @@
               +
             </button>
           </div>
-          <div class="button">
-            <button
-              type="button"
-              value="⌫"
-              class="square-button operations"
-              id="backspaceButton"
-            >
-              ⌫
-            </button>
-          </div>
         </section>
       </form>
     </main>
+    <script src="./script/script.js"></script>
   </body>
-  <script src="./script/script.js"></script>
 </html>
