@@ -17,13 +17,13 @@ let operator = '';
 const displayNumber = (value) => {
     if(inputField.value.length >= 14){
         inputField.value = 'Err';
-        currentDisplayValue = inputField.value;
+        // currentDisplayValue = inputField.value;
     } else if (inputField.value === '0' || inputField.value === 'Err'){
         inputField.value = value;
-        currentDisplayValue = inputField.value;
+        // currentDisplayValue = inputField.value;
     } else {
         inputField.value += value;
-        currentDisplayValue = inputField.value;
+        // currentDisplayValue = inputField.value;
     }
 };
 
@@ -47,6 +47,8 @@ const operate = () => {
     switch (operator) {
         case '+':
             result = add(parseFloat(firstNumber), parseFloat(currentDisplayValue));
+            console.log(firstNumber);
+            console.log(currentDisplayValue);
             break;
         case '-':
             result = subtract(parseFloat(firstNumber), parseFloat(currentDisplayValue));
@@ -76,7 +78,16 @@ const handleOperation = (clickOperator) => {
         operate();
     }
     operator = clickOperator;
-    currentDisplayValue = '';
+    console.log(operator);
+    if(operator!== '' || operate!==null){
+        currentDisplayValue = numberButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                currentDisplayValue = '';
+                currentDisplayValue += button.value;
+                console.log(currentDisplayValue);
+            });
+        });
+    }
 };
 
 const clearDisplay = () => {
@@ -103,7 +114,13 @@ decimalButton.addEventListener('click', () => {
 //Event listener for operation buttons 
 operationButtons.forEach(button => {
     button.addEventListener('click', () => {
-            handleOperation(button.value);
+            // handleOperation(button.value);
+            if(button.value==='='){
+                handleOperation(button.value);
+            }else{
+                handleOperation(button.value);
+                inputField.value += button.value;
+            }        
     });
 });
 
