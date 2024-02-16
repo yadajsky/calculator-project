@@ -14,16 +14,18 @@ let currentDisplayValue = '';
 let firstNumber = '';
 let operator = '';
 
+const isAllowedCharacter = (char) => /[0-9\.]/.test(char);
+
 const displayNumber = (value) => {
     if(inputField.value.length >= 14){
         inputField.value = 'Err';
-        // currentDisplayValue = inputField.value;
+        currentDisplayValue = inputField.value;
     } else if (inputField.value === '0' || inputField.value === 'Err'){
         inputField.value = value;
-        // currentDisplayValue = inputField.value;
+        currentDisplayValue = inputField.value;
     } else {
         inputField.value += value;
-        // currentDisplayValue = inputField.value;
+        currentDisplayValue = inputField.value;
     }
 };
 
