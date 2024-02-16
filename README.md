@@ -26,7 +26,7 @@ Technologies Used
 
 **Demo**
 
-You can view a live demo of the calculator app here:
+You can view a live demo of the calculator app here: https://yadajsky.github.io/calculator-project/
 
 Contributors:
 * Fred Kaneza: https://github.com/amankanz
