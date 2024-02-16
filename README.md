@@ -32,3 +32,4 @@ Contributors:
 * Fred Kaneza: https://github.com/amankanz
 * Raíssa Lima: https://github.com/raissavml
 * Mercédesz A. Fehér: https://github.com/mercedeszafeher
+* Yada Jongsukhee: https://github.com/yadajsky
