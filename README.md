@@ -1,4 +1,4 @@
-**Calculator App**
+***Calculator App***
 
 This project is a simple web-based calculator application that allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division. The calculator provides a user-friendly interface with buttons for numerical input, decimal point, clear, backspace, and operators. It also supports keyboard input for enhanced usability.
 
