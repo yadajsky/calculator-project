@@ -29,6 +29,6 @@ Technologies Used
 You can view a live demo of the calculator app here:
 
 Contributors:
-Fred Kaneza: https://github.com/amankanz
-Raíssa Lima: https://github.com/raissavml
-Mercédesz A. Fehér: https://github.com/mercedeszafeher
+* Fred Kaneza: https://github.com/amankanz
+* Raíssa Lima: https://github.com/raissavml
+* Mercédesz A. Fehér: https://github.com/mercedeszafeher
