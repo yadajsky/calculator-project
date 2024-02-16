@@ -16,6 +16,8 @@ let operator = "";
 let displayValue = "";
 let haveDot = false;
 
+const isAllowedCharacter = (char) => /[0-9\.]/.test(char);
+
 const displayNumber = (value) => {
   if (inputField.innerText.length >= 14) {
     inputField.innerText = "Err";
@@ -49,6 +51,8 @@ const operate = () => {
   switch (operator) {
     case "+":
       result = add(parseFloat(firstNumber), parseFloat(currentDisplayValue));
+      console.log(firstNumber);
+      console.log(currentDisplayValue);
       break;
     case "-":
       result = subtract(
@@ -69,22 +73,31 @@ const operate = () => {
       result = NaN;
   }
   if (!isNaN(result)) {
-    inputField.innerText = result;
+    inputField.value = result;
     currentDisplayValue = result.toString();
     firstNumber = "";
   } else {
-    inputField.innerText = "Error: Invalid operation";
+    // inputField.value = 'Error: Invalid operation';
   }
 };
 
 const handleOperation = (clickOperator) => {
   if (firstNumber === "") {
-    firstNumber = inputField.innerText;
+    firstNumber = inputField.value;
   } else {
     operate();
   }
   operator = clickOperator;
-  currentDisplayValue = "";
+  console.log(operator);
+  if (operator !== "" || operate !== null) {
+    currentDisplayValue = numberButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        currentDisplayValue = "";
+        currentDisplayValue += button.value;
+        console.log(currentDisplayValue);
+      });
+    });
+  }
 };
 
 const clearDisplay = () => {
@@ -114,21 +127,16 @@ numberButtons.forEach((number) => {
   });
 });
 
-//Event listener for decimal button
-// decimalButton.addEventListener("click", (e) => {
-//   if (e.target.innerText === "." && !haveDot) {
-//     haveDot = true;
-//   } else if (e.target.innerText === "." && haveDot) {
-//     return;
-//   }
-//   currentDisplayValue += e.target.innerText;
-//   inputField.value = currentDisplayValue;
-// });
-
 //Event listener for operation buttons
 operationButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    handleOperation(button.innerText);
+    // handleOperation(button.value);
+    if (button.value === "=") {
+      handleOperation(button.value);
+    } else {
+      handleOperation(button.value);
+      inputField.value += button.value;
+    }
   });
 });
 
@@ -175,10 +183,12 @@ divideButton.addEventListener("click", () => {
 
 //Event listener for backspace button
 backspaceButton.addEventListener("click", () => {
-  if (inputField.innerText !== "Err" && inputField.innerText !== "0") {
-    inputField.innerText = inputField.innerText.slice(0, -1);
-    currentDisplayValue = inputField.innerText;
-  } else {
+  if (inputField.value !== "0") {
+    inputField.value = inputField.value.slice(0, -1);
+    if (inputField.value === "") {
+      inputField.value = "0";
+    }
+    currentDisplayValue = inputField.value;
   }
 });
 
