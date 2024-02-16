@@ -1,49 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
     <title>Calculator</title>
-</head>
-<body>
+  </head>
+  <body>
     <main class="main-container">
-        <form class="container">
-            <section class="display">
-                <input type="text" value="0" id="result">
-            </section>
-            <section class="button-container">
-                <div class="button">
-                    <input type="button" value="c" class="square-button operations" id="clearButton">            
-                    <input type="button" value="⌫" class="square-button" id="backspaceButton">
-                </div>
-                <div class="button">
-                    <input type="button" value="7" class="square-button numbers">
-                    <input type="button" value="8" class="square-button numbers">
-                    <input type="button" value="9" class="square-button numbers">
-                    <input type="button" value="/" class="square-button operations" id="divideButton">
-                </div>
-                <div class="button">
-                    <input type="button" value="4" class="square-button numbers">
-                    <input type="button" value="5" class="square-button numbers">
-                    <input type="button" value="6" class="square-button numbers">
-                    <input type="button" value="*" class="square-button operations" id="multiplyButton">
-                </div>
-                <div class="button">
-                    <input type="button" value="1" class="square-button numbers">
-                    <input type="button" value="2" class="square-button numbers">
-                    <input type="button" value="3" class="square-button numbers">
-                    <input type="button" value="-" class="square-button operations" id="subtractButton">
-                </div>
-                <div class="button">
-                    <input type="button" value="0" class="square-button numbers">
-                    <input type="button" value="." class="square-button numbers" id="decimalButton">
-                    <input type="button" value="=" class="square-button operations" id="equalButton">
-                    <input type="button" value="+" class="square-button operations" id="addButton">
-                </div>
-            </section>
-        </form>
+      <form class="container">
+        <section class="display">
+          <div type="text" value="0" id="result">0</div>
+        </section>
+        <section class="button-container">
+          <div class="button">
+            <button
+              type="button"
+              value="c"
+              class="square-button operations"
+              id="clearButton"
+            >
+              c
+            </button>
+            <button
+              type="button"
+              value="⌫"
+              class="square-button"
+              id="backspaceButton"
+            >
+              ⌫
+            </button>
+          </div>
+          <div class="button">
+            <button type="button" value="7" class="square-button numbers">
+              7
+            </button>
+            <button type="button" value="8" class="square-button numbers">
+              8
+            </button>
+            <button type="button" value="9" class="square-button numbers">
+              9
+            </button>
+            <button
+              type="button"
+              value="/"
+              class="square-button operations"
+              id="divideButton"
+            >
+              /
+            </button>
+          </div>
+          <div class="button">
+            <button type="button" value="4" class="square-button numbers">
+              4
+            </button>
+            <button type="button" value="5" class="square-button numbers">
+              5
+            </button>
+            <button type="button" value="6" class="square-button numbers">
+              6
+            </button>
+            <button
+              type="button"
+              value="*"
+              class="square-button operations"
+              id="multiplyButton"
+            >
+              *
+            </button>
+          </div>
+          <div class="button">
+            <button type="button" value="1" class="square-button numbers">
+              1
+            </button>
+            <button type="button" value="2" class="square-button numbers">
+              2
+            </button>
+            <button type="button" value="3" class="square-button numbers">
+              3
+            </button>
+            <button
+              type="button"
+              value="-"
+              class="square-button operations"
+              id="subtractButton"
+            >
+              -
+            </button>
+          </div>
+          <div class="button">
+            <button type="button" value="0" class="square-button numbers">
+              0
+            </button>
+            <button
+              type="button"
+              value="."
+              class="square-button numbers"
+              id="decimalButton"
+            >
+              .
+            </button>
+            <button
+              type="button"
+              value="="
+              class="square-button operations"
+              id="equalButton"
+            >
+              =
+            </button>
+            <button
+              type="button"
+              value="+"
+              class="square-button operations"
+              id="addButton"
+            >
+              +
+            </button>
+          </div>
+        </section>
+      </form>
     </main>
     <script src="./script/script.js"></script>
-</body>
+  </body>
 </html>
