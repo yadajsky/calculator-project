@@ -11,9 +11,12 @@
         <form class="container">
             <section class="display">
                 <input type="text" value="0" id="result">
-                <input type="button" value="c" class="square-button operations" id="clearButton">            
             </section>
             <section class="button-container">
+                <div class="button">
+                    <input type="button" value="c" class="square-button operations" id="clearButton">            
+                    <input type="button" value="⌫" class="square-button operations" id="backspaceButton">
+                </div>
                 <div class="button">
                     <input type="button" value="7" class="square-button numbers">
                     <input type="button" value="8" class="square-button numbers">
@@ -37,9 +40,6 @@
                     <input type="button" value="." class="square-button numbers" id="decimalButton">
                     <input type="button" value="=" class="square-button operations" id="equalButton">
                     <input type="button" value="+" class="square-button operations" id="addButton">
-                </div>
-                <div class="button">
-                    <input type="button" value="⌫" class="square-button operations" id="backspaceButton">
                 </div>
             </section>
         </form>
