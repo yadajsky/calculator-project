@@ -10,7 +10,7 @@ const multiplyButton = document.querySelector("#multiplyButton");
 const divideButton = document.querySelector("#divideButton");
 const backspaceButton = document.querySelector("#backspaceButton");
 
-let currentDisplayValue = "";
+let currentDisplayValue = "0";
 let firstNumber = "";
 let operator = "";
 let haveDot = false;
@@ -50,8 +50,6 @@ const operate = () => {
   switch (operator) {
     case "+":
       result = add(parseFloat(firstNumber), parseFloat(currentDisplayValue));
-      console.log(firstNumber);
-      console.log(currentDisplayValue);
       break;
     case "-":
       result = subtract(
@@ -79,19 +77,18 @@ const operate = () => {
 };
 
 const handleOperation = (clickOperator) => {
+    haveDot = false
   if (firstNumber === "") {
     firstNumber = inputField.innerText;
   } else {
     operate();
   }
   operator = clickOperator;
-  console.log(operator);
   if (operator !== "" || operate !== null) {
     currentDisplayValue = numberButtons.forEach((button) => {
       button.addEventListener("click", () => {
         currentDisplayValue = "";
         currentDisplayValue += button.innerText;
-        console.log(currentDisplayValue);
       });
     });
   }
@@ -108,12 +105,12 @@ const clearDisplay = () => {
 numberButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     if (e.target.innerText === "." && !haveDot) {
-      haveDot = true;
+        haveDot = true;
     } else if (e.target.innerText === "." && haveDot) {
       return;
     }
-    currentDisplayValue += e.target.innerText;
-    inputField.innerText = currentDisplayValue;
+      currentDisplayValue = e.target.innerText;
+      inputField.innerText += currentDisplayValue;
   });
 });
 
