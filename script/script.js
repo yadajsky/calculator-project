@@ -65,7 +65,7 @@ const operate = () => {
         currentDisplayValue = result.toString();
         firstNumber = '';
     } else {
-        inputField.value = 'Error: Invalid operation';
+        // inputField.value = 'Error: Invalid operation';
     }
 };
 
@@ -152,9 +152,10 @@ divideButton.addEventListener('click', () => {
 backspaceButton.addEventListener('click', () => {
     if (inputField.value !== 'Err' && inputField.value !== '0') {
         inputField.value = inputField.value.slice(0, -1);
+        if(inputField.value === ''){
+            inputField.value = '0';
+        }
         currentDisplayValue = inputField.value;
-    } else {
-
     }
 });
 
