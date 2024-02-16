@@ -2,7 +2,7 @@
 
 body{
     font-family: "Ubuntu", sans-serif;
-    background-image: url('../image/paper-clips.jpg');
+    background-color: rgba(169, 205, 255, 0.8);
     background-size: cover;
     background-position: center;
 }
@@ -34,8 +34,8 @@ body{
     align-items: center;
     border: none;
     height: fit-content;
-    width: 58%;
-    margin: 2%;
+    width: 100%;
+    margin: 2% 2% 5% 2%;
     padding: 5%;
     border-radius: 20px;
     font-size: 18px;
@@ -52,6 +52,11 @@ body{
     box-shadow: -5px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.5);
     border: 2px solid white;
     cursor: pointer;
+}
+
+.button{
+    display: flex;
+    justify-content: space-between;
 }
 
 .numbers{
