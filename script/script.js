@@ -167,7 +167,7 @@ divideButton.addEventListener('click', () => {
 
 //Event listener for backspace button 
 backspaceButton.addEventListener('click', () => {
-    if (inputField.value !== 'Err' && inputField.value !== '0') {
+    if (inputField.value !== '0') {
         inputField.value = inputField.value.slice(0, -1);
         if(inputField.value === ''){
             inputField.value = '0';

@@ -61,7 +61,7 @@ html {
   color: white;
 }
 
-.operations {
+.operations, #backspaceButton {
   background-color: rgba(58, 68, 83, 0.8);
   color: cyan;
 }
