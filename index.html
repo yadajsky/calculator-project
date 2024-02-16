@@ -11,32 +11,35 @@
         <form class="container">
             <section class="display">
                 <input type="text" value="0" id="result">
-                <input type="button" value="c" class="square-button operations" onclick="result.value = '0'">            
+                <input type="button" value="c" class="square-button operations" id="clearButton">            
             </section>
             <section class="button-container">
                 <div class="button">
-                    <input type="button" value="7" class="square-button numbers" onclick="displayNumber(this.value)">
-                    <input type="button" value="8" class="square-button numbers" onclick="displayNumber(this.value)">
-                    <input type="button" value="9" class="square-button numbers" onclick="displayNumber(this.value)">
-                    <input type="button" value="/" class="square-button operations" onclick="displayNumber(this.value)">
+                    <input type="button" value="7" class="square-button numbers">
+                    <input type="button" value="8" class="square-button numbers">
+                    <input type="button" value="9" class="square-button numbers">
+                    <input type="button" value="/" class="square-button operations" id="divideButton">
                 </div>
                 <div class="button">
-                    <input type="button" value="4" class="square-button numbers" onclick="displayNumber(this.value)">
-                    <input type="button" value="5" class="square-button numbers" onclick="displayNumber(this.value)">
-                    <input type="button" value="6" class="square-button numbers" onclick="displayNumber(this.value)">
-                    <input type="button" value="×" class="square-button operations" onclick="displayNumber(this.value)">
+                    <input type="button" value="4" class="square-button numbers">
+                    <input type="button" value="5" class="square-button numbers">
+                    <input type="button" value="6" class="square-button numbers">
+                    <input type="button" value="*" class="square-button operations" id="multiplyButton">
                 </div>
                 <div class="button">
-                    <input type="button" value="1" class="square-button numbers" onclick="displayNumber(this.value)">
-                    <input type="button" value="2" class="square-button numbers" onclick="displayNumber(this.value)">
-                    <input type="button" value="3" class="square-button numbers" onclick="displayNumber(this.value)">
-                    <input type="button" value="-" class="square-button operations" onclick="displayNumber(this.value)">
+                    <input type="button" value="1" class="square-button numbers">
+                    <input type="button" value="2" class="square-button numbers">
+                    <input type="button" value="3" class="square-button numbers">
+                    <input type="button" value="-" class="square-button operations" id="subtractButton">
                 </div>
                 <div class="button">
-                    <input type="button" value="0" class="square-button numbers" onclick="displayNumber(this.value)">
-                    <input type="button" value="." class="square-button numbers" onclick="displayNumber(this.value)">
-                    <input type="button" value="=" class="square-button operations" onclick="operate()">
-                    <input type="button" value="+" class="square-button operations" onclick="displayNumber(this.value)">
+                    <input type="button" value="0" class="square-button numbers">
+                    <input type="button" value="." class="square-button numbers" id="decimalButton">
+                    <input type="button" value="=" class="square-button operations" id="equalButton">
+                    <input type="button" value="+" class="square-button operations" id="addButton">
+                </div>
+                <div class="button">
+                    <input type="button" value="⌫" class="square-button operations" id="backspaceButton">
                 </div>
             </section>
         </form>

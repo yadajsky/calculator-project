@@ -1,64 +1,182 @@
 const inputField = document.getElementById('result');
 const operationButtons = document.querySelectorAll('.operations');
 const numberButtons  = document.querySelectorAll('.numbers');
-const equalButton = document.querySelector('.operations [value = "="]');
+const equalButton = document.querySelector('#equalButton');
+const decimalButton = document.querySelector('#decimalButton');
+const clearButton = document.querySelector('#clearButton');
+const addButton = document.querySelector('#addButton');
+const subtractButton = document.querySelector('#subtractButton');
+const multiplyButton = document.querySelector('#multiplyButton');
+const divideButton = document.querySelector('#divideButton');
+const backspaceButton = document.querySelector('#backspaceButton');
 
-const displayNumber = value => {
+let currentDisplayValue = '';
+let firstNumber = '';
+let operator = '';
+
+const displayNumber = (value) => {
     if(inputField.value.length >= 14){
         inputField.value = 'Err';
-    }else if(inputField.value !== 'Err' &&((inputField.value === '0' && value ==='.') || inputField.value !== '0')){
-        let inputFieldValueArray = inputField.value.split('');
-        console.log(inputFieldValueArray[-1]);
-        inputField.value += value;
-    }else{
+        currentDisplayValue = inputField.value;
+    } else if (inputField.value === '0' || inputField.value === 'Err'){
         inputField.value = value;
+        currentDisplayValue = inputField.value;
+    } else {
+        inputField.value += value;
+        currentDisplayValue = inputField.value;
     }
-}
+};
 
-const add = numberInput => {
-    let displayValues = numberInput.split('+');
-    let num1 = parseFloat(displayValues[0]);
-    let num2 = parseFloat(displayValues[1]);
-    inputField.value = num1 + num2;
-    console.log(inputField.value);
-}
+const add =(num1, num2) => num1 + num2;
 
-const substract = numberInput => {
-    let displayValues = numberInput.split('-');
-    let num1 = parseFloat(displayValues[0]);
-    let num2 = parseFloat(displayValues[1]);
-    inputField.value = num1 - num2;
-    console.log(inputField.value);
-}
+const subtract = (num1, num2) => num1 - num2;
 
-const multiply = numberInput => {
-    let displayValues = numberInput.split('×');
-    let num1 = parseFloat(displayValues[0]);
-    let num2 = parseFloat(displayValues[1]);
-    inputField.value = num1 * num2;
-    console.log(inputField.value);
-}
+const multiply = (num1, num2)=> num1 * num2;
 
-const divide = numberInput => {
-    let displayValues = numberInput.split('/');
-    let num1 = parseFloat(displayValues[0]);
-    let num2 = parseFloat(displayValues[1]);
-    inputField.value = num1 / num2;
-    console.log(inputField.value);
-}
+const divide = (num1, num2) => {
+    if(num2 === 0) {
+        inputField.value = 'Error: Division by zero';
+        currentDisplayValue = inputField.value;
+        return NaN;
+    }
+    return num1 / num2;
+};
 
 const operate = () => {
-    for(let i = 0; i<= inputField.value.length; i++){
-        if(inputField.value.includes('+')){
-            add(inputField.value);
-        }
-        else if(inputField.value.includes('-')){
-            substract(inputField.value);
-        }else if(inputField.value.includes('×')){
-            multiply(inputField.value);
-        }else if(inputField.value.includes('/')){
-            divide(inputField.value);
-        }
+    let result;
+    switch (operator) {
+        case '+':
+            result = add(parseFloat(firstNumber), parseFloat(currentDisplayValue));
+            break;
+        case '-':
+            result = subtract(parseFloat(firstNumber), parseFloat(currentDisplayValue));
+            break;
+        case '*':
+            result = multiply(parseFloat(firstNumber), parseFloat(currentDisplayValue));
+            break;
+        case '/':
+            result = divide(parseFloat(firstNumber), parseFloat(currentDisplayValue));
+            break;
+        default:
+            result = NaN;
     }
-}
+    if (!isNaN(result)){
+        inputField.value = result;
+        currentDisplayValue = result.toString();
+        firstNumber = '';
+    } else {
+        inputField.value = 'Error: Invalid operation';
+    }
+};
+
+const handleOperation = (clickOperator) => {
+    if (firstNumber === '') {
+        firstNumber = inputField.value;
+    } else {
+        operate();
+    }
+    operator = clickOperator;
+    currentDisplayValue = '';
+};
+
+const clearDisplay = () => {
+    inputField.value = '0';
+    currentDisplayValue = '';
+    firstNumber = '';
+    operator = '';
+};
+
+//Event listeners for number buttons
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        displayNumber(button.value);
+    });
+});
+
+//Event listener for decimal button 
+decimalButton.addEventListener('click', () => {
+    if (!currentDisplayValue.includes('.')) {
+        displayNumber('.');
+    }
+});
+
+//Event listener for operation buttons 
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+            handleOperation(button.value);
+    });
+});
+
+// Event listener for equals button
+equalButton.addEventListener('click', () => {
+    if (firstNumber !== '' && currentDisplayValue !== '') {
+        operate();
+    }
+});
+
+// Event listener for clear button
+clearButton.addEventListener('click', () => {
+    clearDisplay();
+});
+
+// Event listeners for add, subtract, multiply, and divide buttons
+addButton.addEventListener('click', () => {
+    if (currentDisplayValue !== '') {
+        handleOperation('+');
+    }
+    currentDisplayValue = '';
+});
+
+subtractButton.addEventListener('click', () => {
+    if (currentDisplayValue !== '') {
+        handleOperation('-');
+    }
+    currentDisplayValue = '';
+});
+
+multiplyButton.addEventListener('click', () => {
+    if (currentDisplayValue !== '') {
+        handleOperation('*');
+    }
+    currentDisplayValue = '';
+});
+
+divideButton.addEventListener('click', () => {
+    if (currentDisplayValue !== '') {
+        handleOperation('/');
+    }
+    currentDisplayValue = '';
+});
+
+//Event listener for backspace button 
+backspaceButton.addEventListener('click', () => {
+    if (inputField.value !== 'Err' && inputField.value !== '0') {
+        inputField.value = inputField.value.slice(0, -1);
+        currentDisplayValue = inputField.value;
+    } else {
+
+    }
+});
+
+//Keyboard support 
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+    if (!isNaN(parseInt(key))) {
+        displayNumber(key);
+    } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+            handleOperation(key);
+    } else if (key === '.') {
+        if (!currentDisplayValue.includes('.')) {
+            displayNumber('.');
+        }
+    } else if (key === 'Enter') {
+        handleOperation();
+    } else if (key === 'Escape') {
+        clearDisplay();
+    } else if (key === 'Backspace') {
+        inputField.value = inputField.value.slice(0, -1);
+        currentDisplayValue = inputField.value;
+    }
+});
+
 
