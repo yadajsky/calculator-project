@@ -66,7 +66,7 @@ const operate = () => {
       );
       break;
     case "/":
-      result = divide(parseFloat(firstNumber), parseFloat(currentDisplayValue));
+      result = divide(parseFloat(firstNumber), parseFloat(currentDisplayValue)).toFixed(6);
       break;
     default:
       result = NaN;
