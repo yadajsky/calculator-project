@@ -42,17 +42,19 @@ const divide = (num1, num2) => {
     inputField.innerText = "Error: Division by zero";
     currentDisplayValue = inputField.innerText;
     return NaN;
+  }else{
+    return num1 / num2;
   }
-  return num1 / num2;
 };
 
 const operate = () => {
   let result;
   currentDisplayValue = inputField.innerText.split(operator)[1];
+
   switch (operator) {
     case "+":
-      result = add(parseFloat(firstNumber), parseFloat(currentDisplayValue));
-      break;
+        result = add(parseFloat(firstNumber), parseFloat(currentDisplayValue));
+        break;
     case "-":
       result = subtract(
         parseFloat(firstNumber),
@@ -66,7 +68,8 @@ const operate = () => {
       );
       break;
     case "/":
-      result = divide(parseFloat(firstNumber), parseFloat(currentDisplayValue)).toFixed(6);
+      result = divide(parseFloat(firstNumber), parseFloat(currentDisplayValue));
+      parseFloat(result).toFixed(6);
       break;
     default:
       result = NaN;
@@ -127,7 +130,11 @@ numberButtons.forEach((button) => {
 operationButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.innerText === "=") {
-      handleOperation(button.innerText);
+      if(inputField.innerText.includes('Error: Division by zero')){
+        inputField.innerText = 'Error: Division by zero';
+      }else{
+        handleOperation(button.innerText);
+      }
     }else {
       handleOperation(button.innerText);
       if(inputField.innerText.includes(operator)){
