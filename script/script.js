@@ -132,9 +132,7 @@ operationButtons.forEach((button) => {
       handleOperation(button.innerText);
       if(inputField.innerText.includes(operator)){
         let newValue = inputField.innerText.split(operator)[0];
-        console.log(newValue);
         inputField.innerText = newValue + button.innerText
-        console.log(inputField.innerText);
       }else{
         inputField.innerText += button.innerText;  
       }
