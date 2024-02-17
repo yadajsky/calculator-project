@@ -37,7 +37,7 @@ const subtract = (num1, num2) => num1 - num2;
 
 const multiply = (num1, num2) => num1 * num2;
 
-const divide = (num1, num2) => {
+    const divide = (num1, num2) => {
   if (num2 === 0) {
     inputField.innerText = "Error: Division by zero";
     currentDisplayValue = inputField.innerText;
@@ -136,6 +136,9 @@ operationButtons.forEach((button) => {
         handleOperation(button.innerText);
       }
     }else {
+      if (/[\+\*\/\-]$/.test(inputField.innerText)) {
+        inputField.innerText = inputField.innerText.slice(0, -1);
+      }
       handleOperation(button.innerText);
       if(inputField.innerText.includes(operator)){
         let newValue = inputField.innerText.split(operator)[0];
