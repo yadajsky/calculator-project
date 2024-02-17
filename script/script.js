@@ -47,6 +47,7 @@ const divide = (num1, num2) => {
 
 const operate = () => {
   let result;
+  currentDisplayValue = inputField.innerText.split(operator)[1];
   switch (operator) {
     case "+":
       result = add(parseFloat(firstNumber), parseFloat(currentDisplayValue));
@@ -110,7 +111,11 @@ numberButtons.forEach((button) => {
       return;
     }
       currentDisplayValue = e.target.innerText;
-      inputField.innerText += currentDisplayValue;
+      if(inputField.innerText === '0'){
+        inputField.innerText = currentDisplayValue;
+      }else{
+        inputField.innerText += currentDisplayValue;
+      }
   });
 });
 
