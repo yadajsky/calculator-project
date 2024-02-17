@@ -48,7 +48,6 @@ const divide = (num1, num2) => {
 const operate = () => {
   let result;
   currentDisplayValue = inputField.innerText.split(operator)[1];
-//   console.log(inputField.innerText.split(operator)[1]);
   switch (operator) {
     case "+":
       result = add(parseFloat(firstNumber), parseFloat(currentDisplayValue));
