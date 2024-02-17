@@ -1,5 +1,7 @@
 ***Calculator App***
 
+You can view a live demo of the calculator app here: https://yadajsky.github.io/calculator-project/
+
 This project is a simple web-based calculator application that allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division. The calculator provides a user-friendly interface with buttons for numerical input, decimal point, clear, backspace, and operators. It also supports keyboard input for enhanced usability.
 
 Technologies Used
@@ -24,11 +26,7 @@ Technologies Used
 - Keyboard support for entering numbers and operators.
 - Error handling for division by zero and invalid operations.
 
-**Demo**
-
-You can view a live demo of the calculator app here: https://yadajsky.github.io/calculator-project/
-
-Contributors:
+**Contributors:**
 * Fred Kaneza: https://github.com/amankanz
 * Raíssa Lima: https://github.com/raissavml
 * Mercédesz A. Fehér: https://github.com/mercedeszafeher
