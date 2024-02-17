@@ -128,9 +128,16 @@ operationButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.innerText === "=") {
       handleOperation(button.innerText);
-    } else {
+    }else {
       handleOperation(button.innerText);
-      inputField.innerText += button.innerText;
+      if(inputField.innerText.includes(operator)){
+        let newValue = inputField.innerText.split(operator)[0];
+        console.log(newValue);
+        inputField.innerText = newValue + button.innerText
+        console.log(inputField.innerText);
+      }else{
+        inputField.innerText += button.innerText;  
+      }
     }
   });
 });
