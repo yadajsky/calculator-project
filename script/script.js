@@ -14,6 +14,7 @@ let currentDisplayValue = "0";
 let firstNumber = "";
 let operator = "";
 let haveDot = false;
+let previousResult = "";
 
 const isAllowedCharacter = (char) => /[0-9\.]/.test(char);
 
@@ -72,6 +73,7 @@ const operate = () => {
   }
   if (!isNaN(result)) {
     inputField.innerText = result;
+    previousResult = result;
     currentDisplayValue = result.toString();
     firstNumber = "";
   }
@@ -110,12 +112,15 @@ numberButtons.forEach((button) => {
     } else if (e.target.innerText === "." && haveDot) {
       return;
     }
-      currentDisplayValue = e.target.innerText;
-      if(inputField.innerText === '0'){
-        inputField.innerText = currentDisplayValue;
-      }else{
-        inputField.innerText += currentDisplayValue;
-      }
+    currentDisplayValue = e.target.innerText;
+    if(inputField.innerText === previousResult.toString()){
+        inputField.innerText = e.target.innerText;
+    }else if(inputField.innerText === '0'){
+    inputField.innerText = currentDisplayValue;
+    }else{
+    inputField.innerText += currentDisplayValue;
+    }
+
   });
 });
 
